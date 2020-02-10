@@ -2,8 +2,13 @@ section	.text
 	global _ft_strlen
 
 _ft_strlen:
-	mov	rcx, 0
-	ret
-	
+	mov	rax, 0
+
 loop:
-	inc rcx
+	cmp [rdi + rax], byte 0
+	je end
+	inc rax
+	jmp loop
+
+end:
+	ret
