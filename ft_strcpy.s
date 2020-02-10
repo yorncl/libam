@@ -4,14 +4,14 @@ section .text
 _ft_strcpy:
 	mov rax, rdi
 
-loop;
-	mov [rdi] [rsi]
+loop:
+	mov rcx, [rsi]
+	mov [rdi], rcx
 	inc rdi
 	inc rsi
-	cmp [rdi] , byte 0
-	je end
-	jmp loop
+	cmp [rsi] , byte 0
+	jne loop
 
-end;
-	mov [rdi] [rsi]
+end:
+	mov [rdi], byte 0
 	ret
