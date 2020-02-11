@@ -5,6 +5,8 @@ CFLAGS = -Wall -Wextra -Werror
 SRCS_S =	ft_strlen.s \
 			ft_strcpy.s \
 			ft_strcmp.s \
+			ft_write.s \
+			ft_read.s \
 
 OBJS = $(SRCS_S:%.s=%.o)
 
