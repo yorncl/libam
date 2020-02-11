@@ -6,7 +6,7 @@
 /*   By: mclaudel <mclaudel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:23:30 by mclaudel          #+#    #+#             */
-/*   Updated: 2020/02/11 16:07:23 by mclaudel         ###   ########.fr       */
+/*   Updated: 2020/02/11 17:23:32 by mclaudel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,27 @@ int main(void)
 	// strcmp_test("asdasdas", "qfoprqqq");
 	// strcmp_test("a", "a\200");
 	
-	int r = ft_write(1, "ft_write test plz\n", 18);
-	printf("%d\n", r);
-	r = ft_write(1, "ft_write test plz\n", 18);
-	printf("%d\n", r);
+	// int r = ft_write(1, "ft_write test plz\n", 18);
+	// printf("%d\n", r);
+	// r = ft_write(1, "ft_write test plz\n", 18);
+	// printf("%d\n", r);
 
-	printf("\n\n\n\n\n");
+	// printf("\n\n\n\n\n");
 	
-	char buff[10];
-	while (ft_read(open("libasm.h", O_RDONLY), buff, 10))
-		printf("r: %s\n", buff);
-
+	// char buff[100];
+	// int fd = open("libasm.h", O_RDONLY);
+	// bzero(buff, 100);
+	// while ((r = ft_read(fd, buff, 10)) > 0)
+	// {
+	// 		printf("%d|\t%s\n", r, buff);
+	// 		bzero(buff, 100);
+	// }
 	// printf("END OF TESTS\n");
+
+	char *str;
+
+	str= ft_strdup("Hello moto");
+	printf("%p |%s|\n", str, str);
+	free(str);
 	return (0);
 }

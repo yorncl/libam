@@ -6,7 +6,7 @@
 /*   By: mclaudel <mclaudel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:23:25 by mclaudel          #+#    #+#             */
-/*   Updated: 2020/02/11 16:05:37 by mclaudel         ###   ########.fr       */
+/*   Updated: 2020/02/11 17:04:48 by mclaudel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,5 @@ int		ft_strcpy(char *dst, char *src);
 int		ft_strcmp(char *s1, char *s2);
 int		ft_write(int fildes, const void *buf, size_t nbyte);
 size_t	ft_read(int fildes, void *buf, size_t nbyte);
+char	*ft_strdup(const char *s1);
 #endif
