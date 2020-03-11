@@ -6,7 +6,7 @@
 /*   By: mclaudel <mclaudel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:23:30 by mclaudel          #+#    #+#             */
-/*   Updated: 2020/03/10 12:08:01 by mclaudel         ###   ########.fr       */
+/*   Updated: 2020/03/11 11:59:19 by mclaudel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include <string.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <sys/types.h>
+#include <sys/uio.h>
 
 void	strcmp_test(char *s1, char *s2)
 {
@@ -48,11 +50,11 @@ void	write_test(int fd, char *buff, int nb)
 int		main(void)
 {
 	printf("\e[1;34m======= ft_strlen =======\e[0m\n");
-	printf("%-10d vs %10lu\n", ft_strlen(""), strlen(""));
-	printf("%-10d vs %10lu\n", ft_strlen("\n"), strlen("\n"));
-	printf("%-10d vs %10lu\n", ft_strlen("a"), strlen("a"));
-	printf("%-10d vs %10lu\n", ft_strlen("Hello"), strlen("Hello"));
-	printf("%-10d vs %10lu\n", ft_strlen("Hel\0lo"), strlen("Hel\0lo"));
+	printf("%-10lu vs %10lu\n", ft_strlen(""), strlen(""));
+	printf("%-10lu vs %10lu\n", ft_strlen("\n"), strlen("\n"));
+	printf("%-10lu vs %10lu\n", ft_strlen("a"), strlen("a"));
+	printf("%-10lu vs %10lu\n", ft_strlen("Hello"), strlen("Hello"));
+	printf("%-10lu vs %10lu\n", ft_strlen("Hel\0lo"), strlen("Hel\0lo"));
 
 	printf("\e[1;34m======= ft_strcpy =======\e[0m\n");
 	strcy_test("hello moto");
@@ -77,7 +79,7 @@ int		main(void)
 	write_test(666, "ft_write test plz\n", -18);
 
 	printf("\e[1;34m======= ft_read =======\e[0m\n");
-	// printf("\n\n\n\n\n");	
+	// printf("\n\n\n\n\n");
 	// char buff[100];
 	// int fd = open("libasm.h", O_RDONLY);
 	// bzero(buff, 100);
