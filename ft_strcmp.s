@@ -1,5 +1,6 @@
+global ft_strcmp
+
 section .text
-	global _ft_strcmp
 
 zero:
 	cmp cl, byte 0
@@ -7,7 +8,7 @@ zero:
 	inc rdi
 	inc rsi
 
-_ft_strcmp:
+ft_strcmp:
 	mov al, [rdi]
 	mov cl, [rsi]
 	cmp al, cl

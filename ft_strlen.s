@@ -1,7 +1,8 @@
-section	.text
-	global _ft_strlen
+global ft_strlen
 
-_ft_strlen:
+section	.text
+
+ft_strlen:
 	mov	rax, 0
 
 loop:
