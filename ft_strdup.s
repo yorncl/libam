@@ -8,8 +8,8 @@ extern ft_strcpy
 section .text
 
 ft_strdup:
-	call ft_strlen
 	push rdi
+	call ft_strlen
 	mov rdi, rax
 	inc rdi
 	call malloc

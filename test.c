@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:23:30 by mclaudel          #+#    #+#             */
-/*   Updated: 2020/07/09 16:06:52 by user42           ###   ########.fr       */
+/*   Updated: 2020/07/09 17:27:41 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,12 +142,16 @@ int		main(void)
 
 	printf("\e[1;34m======= ft_strcmp =======\e[0m\n");
 	strcmp_test("", "");
+	strcmp_test("asdklfjasdfj////asdf'''asdf3##\"", "asdklfjasdfj////asdf'''asdf3##\"");
 	strcmp_test("a", "a");
 	strcmp_test("a", "aa");
 	strcmp_test("aaaaa", "");
 	strcmp_test("", "aaaa");
 	strcmp_test("asdasdas", "qfoprqqq");
 	strcmp_test("a\n", "a\200");
+	strcmp_test("a\n", "a\200");
+	strcmp_test("a\xff", "a");
+	
 
 	printf("\e[1;34m======= ft_write =======\e[0m\n");
 	write_test(1, "ft_write test plz\n", 18);
