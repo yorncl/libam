@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:23:30 by mclaudel          #+#    #+#             */
-/*   Updated: 2020/06/15 14:31:37 by user42           ###   ########.fr       */
+/*   Updated: 2020/07/09 11:08:18 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 void	strcmp_test(char *s1, char *s2)
 {
-	printf("%-10d vs %10d\n", strcmp(s1, s2), ft_strcmp(s1, s2));
+	printf("%-10d vs %10d\n", ft_strcmp(s1, s2), strcmp(s1, s2));
 }
 
 void	strcy_test(char *src)
@@ -78,27 +78,27 @@ void	strdup_test(const char *s)
 
 int		main(void)
 {
-	printf("\e[1;34m======= ft_strlen =======\e[0m\n");
-	printf("%-10lu vs %10lu\n", ft_strlen(""), strlen(""));
-	printf("%-10lu vs %10lu\n", ft_strlen("\n"), strlen("\n"));
-	printf("%-10lu vs %10lu\n", ft_strlen("a"), strlen("a"));
-	printf("%-10lu vs %10lu\n", ft_strlen("Hello"), strlen("Hello"));
-	printf("%-10lu vs %10lu\n", ft_strlen("Hel\0lo"), strlen("Hel\0lo"));
+	// printf("\e[1;34m======= ft_strlen =======\e[0m\n");
+	// printf("%-10lu vs %10lu\n", ft_strlen(""), strlen(""));
+	// printf("%-10lu vs %10lu\n", ft_strlen("\n"), strlen("\n"));
+	// printf("%-10lu vs %10lu\n", ft_strlen("a"), strlen("a"));
+	// printf("%-10lu vs %10lu\n", ft_strlen("Hello"), strlen("Hello"));
+	// printf("%-10lu vs %10lu\n", ft_strlen("Hel\0lo"), strlen("Hel\0lo"));
 
-	printf("\e[1;34m======= ft_strcpy =======\e[0m\n");
-	strcy_test("hello moto");
-	strcy_test("");
-	strcy_test("aaaa\0aaaa");
-	strcy_test("aaaaaaasdfa sdfasdfaksjdalkdbw,we mwne a mwngaa");
+	// printf("\e[1;34m======= ft_strcpy =======\e[0m\n");
+	// strcy_test("hello moto");
+	// strcy_test("");
+	// strcy_test("aaaa\0aaaa");
+	// strcy_test("aaaaaaasdfa sdfasdfaksjdalkdbw,we mwne a mwngaa");
 
-	printf("\e[1;34m======= ft_strcmp =======\e[0m\n");
-	strcmp_test("", "");
-	strcmp_test("a", "a");
-	strcmp_test("a", "aa");
-	strcmp_test("aaaaa", "");
-	strcmp_test("", "aaaa");
-	strcmp_test("asdasdas", "qfoprqqq");
-	strcmp_test("a\n", "a\200");
+	// printf("\e[1;34m======= ft_strcmp =======\e[0m\n");
+	// strcmp_test("", "");
+	// strcmp_test("a", "a");
+	// strcmp_test("a", "aa");
+	// strcmp_test("aaaaa", "");
+	// strcmp_test("", "aaaa");
+	// strcmp_test("asdasdas", "qfoprqqq");
+	// strcmp_test("a\n", "a\200");
 
 	printf("\e[1;34m======= ft_write =======\e[0m\n");
 	write_test(1, "ft_write test plz\n", 18);
@@ -111,7 +111,7 @@ int		main(void)
 	int fd1 = open("/tmp/test_write_original", O_CREAT | O_TRUNC | O_RDWR);
 	int fd2 = open("/tmp/test_write_mine", O_CREAT | O_TRUNC | O_RDWR);
 	write(fd1, "ft_write test plz\n", 5);
-	write(fd2, "ft_write test plz\n", 5);
+	ft_write(fd2, "ft_write test plz\n", 5);
 	system("chmod 777 /tmp/test_write_original");
 	system("chmod 777 /tmp/test_write_mine");
 	system("cat /tmp/test_write_original; echo ''");
@@ -120,25 +120,25 @@ int		main(void)
 	close(fd2);
 
 
-	printf("\e[1;34m======= ft_read =======\e[0m\n");
-	read_test(1, 1, 10);
-	read_test(666, 666, 10);
+	// printf("\e[1;34m======= ft_read =======\e[0m\n");
+	// read_test(1, 1, 10);
+	// read_test(666, 666, 10);
 
-	fd1 = open("/tmp/test_write_original", O_RDWR);
-	fd2 = open("/tmp/test_write_mine", O_RDWR);
-	read_test(fd1, fd2, 10);
-	close(fd1);
-	close(fd2);
-	fd1 = open("/tmp/test_write_original", O_RDWR);
-	fd2 = open("/tmp/test_write_mine", O_RDWR);
-	read_test(fd1, fd2, -10);
-	close(fd1);
-	close(fd2);
+	// fd1 = open("/tmp/test_write_original", O_RDWR);
+	// fd2 = open("/tmp/test_write_mine", O_RDWR);
+	// read_test(fd1, fd2, 10);
+	// close(fd1);
+	// close(fd2);
+	// fd1 = open("/tmp/test_write_original", O_RDWR);
+	// fd2 = open("/tmp/test_write_mine", O_RDWR);
+	// read_test(fd1, fd2, -10);
+	// close(fd1);
+	// close(fd2);
 
-	printf("\e[1;34m======= ft_strdup =======\e[0m\n");
-	strdup_test("");
-	strdup_test("assdasjdakjskjahsfkjhdf");
-	strdup_test("assdasjda\0kjskjahsfkjhdf");
+	// printf("\e[1;34m======= ft_strdup =======\e[0m\n");
+	// strdup_test("");
+	// strdup_test("assdasjdakjskjahsfkjhdf");
+	// strdup_test("assdasjda\0kjskjahsfkjhdf");
 	return (0);
 }
 
