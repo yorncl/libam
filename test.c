@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:23:30 by mclaudel          #+#    #+#             */
-/*   Updated: 2020/07/09 14:59:53 by user42           ###   ########.fr       */
+/*   Updated: 2020/07/09 16:06:52 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	write_test(int fd, char *buff, int nb)
 		printf("%-7d vs %7d  err %d %d\n", r1, r2, err1, err2);
 }
 
-void	read_test(int fd1, int fd2, int nb)
+void	read_test(int fd1, int fd2, int nb, int isnull)
 {
 	int r1;
 	int r2;
@@ -81,9 +81,9 @@ void	read_test(int fd1, int fd2, int nb)
 	bzero(buff1, 100);
 	bzero(buff2, 100);
 	printf("-------------------\n");
-	r1 = ft_read(fd1, buff1, nb);
+	r1 = ft_read(fd1, !isnull ? buff1 : 0, nb);
 	err1 = errno;
-	r2 = read(fd2, buff2, nb);
+	r2 = read(fd2, !isnull ? buff2 : 0, nb);
 	err2 = errno;
 	if (r1 == r2 && err1 == err2 && strcmp(buff1, buff2) == 0)
 		printf("OK\n");
@@ -170,17 +170,19 @@ int		main(void)
 
 
 	printf("\e[1;34m======= ft_read =======\e[0m\n");
-	read_test(1, 1, 10);
-	read_test(666, 666, 10);
+	read_test(1, 1, 10, 0);
+	read_test(666, 666, 10, 0);
 
 	fd1 = open("/tmp/test_write_original", O_RDWR);
 	fd2 = open("/tmp/test_write_mine", O_RDWR);
-	read_test(fd1, fd2, 10);
+	read_test(fd1, fd2, 10, 0);
 	close(fd1);
 	close(fd2);
 	fd1 = open("/tmp/test_write_original", O_RDWR);
 	fd2 = open("/tmp/test_write_mine", O_RDWR);
-	read_test(fd1, fd2, -10);
+	read_test(fd1, fd2, -10, 0);
+	read_test(fd1, fd2, 10, 1);
+	read_test(fd1, fd2, 0, 1);
 	close(fd1);
 	close(fd2);
 

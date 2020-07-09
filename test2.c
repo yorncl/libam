@@ -17,13 +17,11 @@ int main(void)
 	printf("Test (\"\"):\nExpected result = %zu\nResult          = %zu\n\n", strlen(""), ft_strlen(""));
 	printf("Test (\"zouglou\"):\nExpected result = %zu\nResult          = %zu\n\n", strlen("zouglou"), ft_strlen("zouglou"));
 	printf("Test (\"zouglou danse la danse du magicien\"):\nExpected result = %zu\nResult          = %zu\n\n", strlen("zouglou danse la danse du magicien"), ft_strlen("zouglou danse la danse du magicien"));
-	printf("Test (\"NULL\"):\nExpected result = 0\nResult          = %zu\n", ft_strlen(NULL));
 	printf("\n=========================================\n=============== FT_STRCPY ===============\n=========================================\n\n");
 	char	dst[50];
 	char	dst2[50];
 	char	dst3[50];
 	char	dst4[50];
-	char	dst5[50];
 	char	dst_true[50];
 	char	dst2_true[50];
 	char	dst3_true[50];
@@ -32,8 +30,6 @@ int main(void)
 	printf("Test (dst, \"zouglou\"):\nExpected result = %s\nResult          = %s\n\n", strcpy(dst2_true, "zouglou"), ft_strcpy(dst2, "zouglou"));
 	printf("Test (dst, \"zouglou danse la danse du magicien\"):\nExpected result = %s\nResult          = %s\n\n", strcpy(dst3_true, "zouglou danse la danse du magicien"), ft_strcpy(dst3, "zouglou danse la danse du magicien"));
 	printf("Test (dst, \"zoug\\0lou danse la danse du magicien\"):\nExpected result = %s\nResult          = %s\n\n", strcpy(dst4_true, "zoug\0lou danse la danse du magicien"), ft_strcpy(dst4, "zoug\0lou danse la danse du magicien"));
-	printf("Test (dst, \"NULL\"):\nExpected result = (null)\nResult          = %s\n\n", ft_strcpy(dst5, NULL));
-	printf("Test (NULL, \"zouglou\"):\nExpected result = (null)\nResult          = %s\n", ft_strcpy(NULL, "zouglou"));
 	printf("\n=========================================\n=============== FT_STRCMP ===============\n=========================================\n\n");
 	printf("Test (\"\", \"\"):\nExpected result = %d\nResult          = %d\n\n", strcmp("", ""), ft_strcmp("", ""));
 	printf("Test (\"zouglou\", \"zouglou\"):\nExpected result = %d\nResult          = %d\n\n", strcmp("zouglou", "zouglou"), ft_strcmp("zouglou", "zouglou"));
@@ -41,8 +37,6 @@ int main(void)
 	printf("Test (\"CCC\", \"ABC\"):\nExpected result = %d\nResult          = %d\n\n", strcmp("CCC", "ABC"), ft_strcmp("CCC", "ABC"));
 	printf("Test (\"AAA\", \"A\"):\nExpected result = %d\nResult          = %d\n\n", strcmp("AAA", "A"), ft_strcmp("AAA", "A"));
 	printf("Test (\"AAA\", \"AAAA\"):\nExpected result = %d\nResult          = %d\n\n", strcmp("AAA", "AAAA"), ft_strcmp("AAA", "AAAA"));
-	printf("Test (\"zouglou\", NULL):\nExpected result = 1\nResult          = %d\n\n", ft_strcmp("zouglou", NULL));
-	printf("Test (NULL, \"zouglou\"):\nExpected result = -1\nResult          = %d\n", ft_strcmp(NULL, "zouglou"));
 	printf("\n=========================================\n=============== FT_WRITE ================\n=========================================\n\n");
 	printf("Test (1, \"\", 0):\n");
 	printf("Expected result = %zd\nResult          = %zd\n\n", write(1, "", 0), ft_write(1, "", 0));
@@ -67,10 +61,10 @@ int main(void)
 	char	buf_true[50];
 	char	buf2_true[50];
 	char	buf3_true[50];
-	fd = open("./test/test", O_RDONLY);
-	fd2 = open("./test/test", O_RDONLY);
-	fd2_true = open("./test/test2", O_RDONLY);
-	fd_true = open("./test/test2", O_RDONLY);
+	fd = open("./test2.c", O_RDONLY);
+	fd2 = open("./test2.c", O_RDONLY);
+	fd2_true = open("./test.c", O_RDONLY);
+	fd_true = open("./test.c", O_RDONLY);
 	buf3[0] = '\0';
 	buf3_true[0] = '\0';
 	printf("Test (fd, buf, 13):\nExpected result = %zd\nResult          = %zd\nBuf_true = %s\nBuf      = %s\n\n", read(fd_true, buf_true, 13), ft_read(fd, buf, 13), buf_true, buf);
@@ -88,6 +82,5 @@ int main(void)
 	printf("Test (\"zouglou\"):\nExpected result = %s\nResult          = %s\n\n", strdup("zouglou"), ft_strdup("zouglou"));
 	printf("Test (\"zouglou danse la danse du magicien\"):\nExpected result = %s\nResult          = %s\n\n", strdup("zouglou danse la danse du magicien"), ft_strdup("zouglou danse la danse du magicien"));
 	printf("Test (\"zoug\\0lou danse la danse du magicien\"):\nExpected result = %s\nResult          = %s\n\n", strdup("zoug\0lou danse la danse du magicien"), ft_strdup("zoug\0lou danse la danse du magicien"));
-	printf("Test (NULL):\nExpected result = (null)\nResult          = %s\n", ft_strdup(NULL));
 	return (0);
 }
