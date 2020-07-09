@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:23:30 by mclaudel          #+#    #+#             */
-/*   Updated: 2020/07/09 14:40:47 by user42           ###   ########.fr       */
+/*   Updated: 2020/07/09 14:42:48 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ void	read_test(int fd1, int fd2, int nb)
 {
 	int r1;
 	int r2;
+	int	err1;
+	int	err2;
 
 	char buff1[100];
 	char buff2[100];
@@ -75,7 +77,9 @@ void	read_test(int fd1, int fd2, int nb)
 	bzero(buff2, 100);
 	printf("-------------------\n");
 	r1 = ft_read(fd1, buff1, nb);
+	err1 = errno;
 	r2 = read(fd2, buff2, nb);
+	err1 = errno;
 	printf("|%s| vs |%s|\n", buff1, buff2);
 	printf("%-7d vs %7d\n", r1, r2);
 }
