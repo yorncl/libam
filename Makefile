@@ -28,10 +28,6 @@ bonus: all
 test: all
 	$(CC) $(CFLAGS) -fsanitize=address -g3 test.c $(NAME) -I. -o test.out
 
-test2: all
-	$(CC) $(CFLAGS) -fsanitize=address -g3 test2.c $(NAME) -I. -o test.out
-
-
 clean:
 	$(RM) $(OBJS)
 	$(RM) test.out

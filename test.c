@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:23:30 by mclaudel          #+#    #+#             */
-/*   Updated: 2020/07/09 17:27:41 by user42           ###   ########.fr       */
+/*   Updated: 2020/07/13 12:17:46 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,11 +156,20 @@ int		main(void)
 	printf("\e[1;34m======= ft_write =======\e[0m\n");
 	write_test(1, "ft_write test plz\n", 18);
 	write_test(1, "ft_write test plz\n", 0);
+	write_test(1, "Lorem ipsum dolor sit amet, consectetur adipiscing\
+elit. Sed in malesuada purus. Etiam a scelerisque massa. Ut non euismod elit. Aliquam\
+bibendum dolor mi, id fringilla tellus pulvinar eu. Fusce vel fermentum sem. Cras\
+volutpat, eros eget rhoncus rhoncus, diam augue egestas dolor, vitae rutrum nisi\
+felis sed purus. Mauris magna ex, mollis non suscipit eu, lacinia ac turpis. Phasellus\
+ac tortor et lectus fermentum lobortis eu at mauris. Vestibulum sit amet posuere\
+tortor, sit amet consequat amet.\n", 496);
 	write_test(666, "ft_write test plz\n", 18);
 	write_test(1, "", 0);
+	write_test(1, 0, 0);
 	write_test(666, "", 0);
 	write_test(1, "ft_write test plz\n", -18);
 	write_test(666, "ft_write test plz\n", -18);
+	write_test(1, 0, 5);
 	fd1 = open("/tmp/test_write_original", O_CREAT | O_TRUNC | O_RDWR);
 	fd2 = open("/tmp/test_write_mine", O_CREAT | O_TRUNC | O_RDWR);
 	write(fd1, "ft_write test plz\n", 5);
